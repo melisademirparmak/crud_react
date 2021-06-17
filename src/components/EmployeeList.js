@@ -1,3 +1,5 @@
+import Employee from './Employee';
+
 const EmployeeList = () => {
   return <Employee />;
 };
