@@ -1,10 +1,13 @@
 import Employee from './Employee';
-import { useContext } from 'react';
+import { useContext} from 'react';
 import { EmployeeContext } from '../contexts/EmployeeContext';
 import { Button } from 'react-bootstrap';
+import { Modal } from 'bootstrap';
+import AddForm from './AddForms';
 
 const EmployeeList = () => {
   const { employees } = useContext(EmployeeContext);
+ 
 
   return (
     <>
@@ -16,7 +19,11 @@ const EmployeeList = () => {
             </h2>
           </div>
           <div className="col-sm-6">
-            <Button className="btn btn-success text-white" data-toggle="modal">
+            <Button
+              
+              className="btn btn-success text-white"
+              data-toggle="modal"
+            >
               <i className="material-icons">&#xE147;</i>
               <span>Add New Employee</span>
             </Button>
@@ -37,6 +44,18 @@ const EmployeeList = () => {
           <Employee employees={employees} />
         </tbody>
       </table>
+
+      <Modal>
+        <Modal.Header>
+          <Modal.Title>Add Employee</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <AddForm />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary">Close Button</Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };
