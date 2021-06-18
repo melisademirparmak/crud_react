@@ -48,16 +48,16 @@ const EmployeeList = () => {
       </table>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header className="modal-header">
+        <Modal.Header className="modal-header" closeButton>
           <Modal.Title>Add Employee</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <AddForm />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          {/* <Button variant="secondary" onClick={handleClose}>
             Close Modal
-          </Button>
+          </Button> */}
         </Modal.Footer>
       </Modal>
     </>
