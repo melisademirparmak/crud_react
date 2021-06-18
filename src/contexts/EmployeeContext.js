@@ -2,8 +2,8 @@ import { createContext, useState } from 'react';
 
 export const EmployeeContext = createContext();
 
-const EmployeeContextPrivder = (props) => {
-  const [employees, setEmployees] = useState([
+const EmployeeContextProvider = (props) => {
+  const [employees] = useState([
     {
       id: 1,
       name: 'Thomas Hardy',
@@ -41,7 +41,11 @@ const EmployeeContextPrivder = (props) => {
     },
   ]);
 
-  return <EmployeeContext.Privder>{props.children}</EmployeeContext.Privder>;
+  return (
+    <EmployeeContext.Provider value={{ employees }}>
+      {props.children}
+    </EmployeeContext.Provider>
+  );
 };
 
-export default EmployeeContext;
+export default EmployeeContextProvider;

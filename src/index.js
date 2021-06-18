@@ -1,11 +1,6 @@
-import ReactDOM from 'react-dom';
 import React from 'react';
-import App from './App';
+import ReactDOM from 'react-dom';
 import './index.css';
+import App from './App';
 
-ReactDOM.render(
-  <React.StricMode>
-    <App />
-  </React.StricMode>,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));

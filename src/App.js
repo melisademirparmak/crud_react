@@ -1,9 +1,9 @@
 import EmployeeList from './components/EmployeeList';
+import EmployeeContextProvider from './contexts/EmployeeContext';
 
 function App() {
   return (
     <div className="App">
-      <EmployeeList />
       <div className="container-xl">
         <div className="table-responsive">
           <div className="table-wrapper">
@@ -26,7 +26,9 @@ function App() {
                 </div>
               </div>
             </div>
-            <EmployeeList />
+            <EmployeeContextProvider>
+              <EmployeeList />
+            </EmployeeContextProvider>
           </div>
         </div>
       </div>
