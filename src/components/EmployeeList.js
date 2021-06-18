@@ -1,13 +1,15 @@
 import Employee from './Employee';
-import { useContext} from 'react';
+import { useContext, useState } from 'react';
 import { EmployeeContext } from '../contexts/EmployeeContext';
-import { Button } from 'react-bootstrap';
-import { Modal } from 'bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 import AddForm from './AddForms';
 
 const EmployeeList = () => {
   const { employees } = useContext(EmployeeContext);
- 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <>
@@ -20,7 +22,7 @@ const EmployeeList = () => {
           </div>
           <div className="col-sm-6">
             <Button
-              
+              onClick={handleShow}
               className="btn btn-success text-white"
               data-toggle="modal"
             >
@@ -45,15 +47,17 @@ const EmployeeList = () => {
         </tbody>
       </table>
 
-      <Modal>
-        <Modal.Header>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header className="modal-header">
           <Modal.Title>Add Employee</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <AddForm />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary">Close Button</Button>
+          <Button variant="secondary" onClick={handleClose}>
+            Close Modal
+          </Button>
         </Modal.Footer>
       </Modal>
     </>
