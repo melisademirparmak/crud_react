@@ -8,14 +8,16 @@ const EditForm = ({ theEmployee }) => {
   const employee = theEmployee;
   const id = employee.id;
 
-  const [name, setName] = useState(employee.name);
-  const [email, setEmail] = useState(employee.email);
-  const [address, setAddress] = useState(employee.address);
-  const [phone, setPhone] = useState(employee.phone);
+  const [name, SetName] = useState(employee.name);
+  const [email, SetEmail] = useState(employee.email);
+  const [address, SetAddress] = useState(employee.address);
+  const [phone, SetPhone] = useState(employee.phone);
+
+  const updatedEmployee = { id, name, email, address, phone };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateEmployee(id, updateEmployee);
+    updateEmployee(id, updatedEmployee);
   };
 
   return (
@@ -25,7 +27,7 @@ const EditForm = ({ theEmployee }) => {
           type="text"
           name="name"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => SetName(e.target.value)}
           placeholder="Name"
           required
         />
@@ -36,7 +38,7 @@ const EditForm = ({ theEmployee }) => {
           placeholder="Email"
           name="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => SetEmail(e.target.value)}
           required
         />
       </Form.Group>
@@ -46,7 +48,7 @@ const EditForm = ({ theEmployee }) => {
           placeholder="Adress"
           name="address"
           value={address}
-          onChange={(e) => setAddress(e.target.value)}
+          onChange={(e) => SetAddress(e.target.value)}
           rows={3}
         />
       </Form.Group>
@@ -55,7 +57,7 @@ const EditForm = ({ theEmployee }) => {
           type="text"
           placeholder="Phone"
           value={phone}
-          onChange={(e) => setPhone(e.target.value)}
+          onChange={(e) => SetPhone(e.target.value)}
           name="phone"
         />
       </Form.Group>
