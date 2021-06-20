@@ -1,5 +1,7 @@
 import { EmployeeContext } from '../contexts/EmployeeContext';
 import { useContext } from 'react';
+import { Modal } from 'react-bootstrap';
+import AddForm from './AddForms';
 
 const Employee = ({ employee }) => {
   const { deleteEmployee } = useContext(EmployeeContext);
@@ -25,6 +27,7 @@ const Employee = ({ employee }) => {
           </i>
         </button>
       </td>
+   
     </>
   );
 };
