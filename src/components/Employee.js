@@ -27,7 +27,15 @@ const Employee = ({ employee }) => {
           </i>
         </button>
       </td>
-   
+      <Modal>
+        <Modal.Header className="modal-header" closeButton>
+          <Modal.Title>Add Employee</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <AddForm />
+        </Modal.Body>
+        <Modal.Footer></Modal.Footer>
+      </Modal>
     </>
   );
 };
