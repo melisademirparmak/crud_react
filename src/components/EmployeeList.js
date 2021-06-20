@@ -5,7 +5,7 @@ import { Button, Modal } from 'react-bootstrap';
 import AddForm from './AddForms';
 
 const EmployeeList = () => {
-  const { employees } = useContext(EmployeeContext);
+  const { sortedEmployees } = useContext(EmployeeContext);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -15,7 +15,7 @@ const EmployeeList = () => {
 
   useEffect(() => {
     handleClose();
-  }, [employees]);
+  }, [sortedEmployees]);
 
   return (
     <>
@@ -49,7 +49,7 @@ const EmployeeList = () => {
           </tr>
         </thead>
         <tbody>
-          {employees.map((employee) => (
+          {sortedEmployees.map((employee) => (
             <tr key={employee.id}>
               <Employee employee={employee} />
             </tr>
