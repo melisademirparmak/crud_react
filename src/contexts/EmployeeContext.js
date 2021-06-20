@@ -55,7 +55,8 @@ const EmployeeContextProvider = (props) => {
         employee.id === id ? updatedEmployee : employee
       )
     );
-  }; 
+  };
+  
 
   return (
     <EmployeeContext.Provider

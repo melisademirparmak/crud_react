@@ -1,10 +1,19 @@
 import { EmployeeContext } from '../contexts/EmployeeContext';
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
-import AddForm from './AddForms';
+import EditForm from './EditForm';
 
 const Employee = ({ employee }) => {
   const { deleteEmployee } = useContext(EmployeeContext);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    handleClose();
+  }, [employee]);
+
   return (
     <>
       <td>{employee.name}</td>
@@ -12,7 +21,11 @@ const Employee = ({ employee }) => {
       <td>{employee.address}</td>
       <td>{employee.phone}</td>
       <td className="row align-items-center">
-        <buttton className="btn text-warning row" data-toggle="modal">
+        <buttton
+          onClick={handleShow}
+          className="btn text-warning row"
+          data-toggle="modal"
+        >
           <i className="material-icons" data-toggle="tooltip" title="Edit">
             &#xE254;
           </i>
@@ -27,12 +40,12 @@ const Employee = ({ employee }) => {
           </i>
         </button>
       </td>
-      <Modal>
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header className="modal-header" closeButton>
-          <Modal.Title>Add Employee</Modal.Title>
+          <Modal.Title>Update Employee</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <AddForm />
+          <EditForm theEmployee={employee} />
         </Modal.Body>
         <Modal.Footer></Modal.Footer>
       </Modal>
