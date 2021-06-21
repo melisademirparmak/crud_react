@@ -2,6 +2,7 @@ import Employee from './Employee';
 import { useContext, useState, useEffect } from 'react';
 import { EmployeeContext } from '../contexts/EmployeeContext';
 import { Button, Modal, Alert } from 'react-bootstrap';
+import Pagination from './Pagination';
 import AddForm from './AddForms';
 
 const EmployeeList = () => {
@@ -76,6 +77,8 @@ const EmployeeList = () => {
         </tbody>
       </table>
 
+      <Pagination />
+      
       <Modal show={show} onHide={handleClose}>
         <Modal.Header className="modal-header" closeButton>
           <Modal.Title>Add Employee</Modal.Title>
