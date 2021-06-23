@@ -43,6 +43,7 @@ const EmployeeContextProvider = (props) => {
   ]);
 
   //localStorage
+
   useEffect(() => {
     const employees = localStorage.getItem('employees');
     setEmployees(JSON.parse(employees));
